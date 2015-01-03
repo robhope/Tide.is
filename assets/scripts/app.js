@@ -13,7 +13,7 @@ $(function () {
       if (result.tides.length) {
         var tides = "";
         result.tides.forEach(function (tide) {
-          tides += tide.type.substring(0, 1).toUpperCase() + tide.type.substring(1) + '\t' + tide.time + '\t' + tide.height + 'm\n';
+          tides += tide.type.substring(0, 1).toUpperCase() + tide.type.substring(1) + '\t' + moment(tide.time, 'h:mm a').format('HH\\hmm') + '\t' + tide.height.replace('+', '') + 'm\n';
         });
       } else {
         var tides = "Sorry, your location is not near a known tide station";
