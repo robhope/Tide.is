@@ -1,17 +1,29 @@
 $(function () {
-	function timedUpdate () {
-    $('#time').html(moment().format('HH:mm - DD MMM YYYY'));
-    setTimeout(timedUpdate, 60 * 1000);
-  }
-
-  function showTide(position) {
+	function showTide(position) {
     $.ajax({
       url: 'https://tide-api.herokuapp.com/' + 
         position.coords.latitude.toFixed(2) + 'N/' + 
         position.coords.longitude.toFixed(2) + 'E'
     }).done(function(result) {
-      $('#tide').html(result.data);
-      $('#station').html(result.station);
+      $("#loading").hide();
+      $("#content").show();
+
+      $('#time').html(moment().format('HH:mm - DD MMM YYYY'));
+
+      if (result.data.tides.length) {
+        var tides = "";
+        result.data.tides.forEach(function (tide) {
+          tides += tide.type.substring(0, 1).toUpperCase() + tide.type.substring(1) + '\t' + tide.time + '\t' + tide.height + 'm\n';
+        });
+      } else {
+        var tides = "Sorry, your location is not near a known tide station";
+      }
+      $('#tide').html(tides);
+      
+      if (result.data.station !== null) {
+        $('#stationWrapper').show();
+        $('#station').html(result.data.station.location + ' - ' + result.data.station.distance + ' away');
+      }
     });
   }
 
@@ -32,6 +44,5 @@ $(function () {
     }
   }
 
-  timedUpdate();
   navigator.geolocation.getCurrentPosition(showTide, showError);
 });

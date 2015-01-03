@@ -11,11 +11,24 @@
         <script type="text/javascript" src="assets/scripts/moment.min.js"></script>
         <script type="text/javascript" src="assets/scripts/app.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
 
     <body>
-        <span id="time"></span><br/>
-        <pre id="tide"></pre><br/>
-        <pre id="station"></pre><br/>
+        <div id="loading">
+            <i class="fa fa-spinner fa-spin fa-5x"></i>
+        </div>
+        <div id="content">
+            <h1>tide.is</h1>
+            <pre id="tide"></pre>
+            <div id="stationWrapper">
+                <i class="fa fa-map-marker"></i>
+                <span id="station"></span>
+            </div>
+            <div>
+                <i class="fa fa-clock-o"></i>
+                <span id="time"></span>
+            </div>
+        </div>
     </body>
 </html>
