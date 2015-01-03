@@ -10,9 +10,9 @@ $(function () {
 
       $('#time').html(moment().format('HH:mm - DD MMM YYYY'));
 
-      if (result.data.tides.length) {
+      if (result.tides.length) {
         var tides = "";
-        result.data.tides.forEach(function (tide) {
+        result.tides.forEach(function (tide) {
           tides += tide.type.substring(0, 1).toUpperCase() + tide.type.substring(1) + '\t' + tide.time + '\t' + tide.height + 'm\n';
         });
       } else {
@@ -20,9 +20,9 @@ $(function () {
       }
       $('#tide').html(tides);
       
-      if (result.data.station !== null) {
+      if (result.station) {
         $('#stationWrapper').show();
-        $('#station').html(result.data.station.location + ' - ' + result.data.station.distance + ' away');
+        $('#station').html(result.station.location + ' - ' + result.station.distance + ' away');
       }
     });
   }
