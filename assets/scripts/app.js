@@ -15,6 +15,23 @@ $(function () {
     });
   }
 
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        $('#tide').html('User denied the request for Geolocation.');
+        break;
+      case error.POSITION_UNAVAILABLE:
+        $('#tide').html('Location information is unavailable.');
+        break;
+      case error.TIMEOUT:
+        $('#tide').html('The request to get user location timed out.');
+        break;
+      case error.UNKNOWN_ERROR:
+        $('#tide').html('An unknown error occurred.');
+        break;
+    }
+  }
+
   timedUpdate();
-  navigator.geolocation.getCurrentPosition(showTide);
+  navigator.geolocation.getCurrentPosition(showTide, showError);
 });
