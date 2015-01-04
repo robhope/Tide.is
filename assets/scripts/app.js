@@ -1,7 +1,7 @@
 $(function () {
 	function showTide(position) {
     $.ajax({
-      url: 'http://localhost:8080/' + 
+      url: 'https://tide-api.herokuapp.com/' + 
         position.coords.latitude.toFixed(2) + 'N/' + 
         position.coords.longitude.toFixed(2) + 'E'
     }).done(function(result) {
