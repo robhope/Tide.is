@@ -1,7 +1,7 @@
 $(function () {
 	function showTide(position) {
     $.ajax({
-      url: 'https://tide-api.herokuapp.com/' + 
+      url: 'http://localhost:8080/' + 
         position.coords.latitude.toFixed(2) + 'N/' + 
         position.coords.longitude.toFixed(2) + 'E'
     }).done(function(result) {
@@ -28,6 +28,9 @@ $(function () {
   }
 
   function showError(error) {
+    $("#loading").hide();
+    $("#content").show();
+      
     switch(error.code) {
       case error.PERMISSION_DENIED:
         $('#tide').html('User denied the request for Geolocation.');
