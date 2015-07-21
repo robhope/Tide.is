@@ -50,7 +50,7 @@ $(function () {
         $('#tide').append($('<div>').addClass('wrapper').text('Sorry, location information is unavailable'));
         break;
       case error.TIMEOUT:
-        $('#tide').append($('<div>').addClass('wrapper').text('Sorry, we timed out trying to get your location');
+        $('#tide').append($('<div>').addClass('wrapper').text('Sorry, we timed out trying to get your location'));
         break;
       case error.UNKNOWN_ERROR:
         $('#tide').append($('<div>').addClass('wrapper').text('Sorry, an unknown error occurred'));
