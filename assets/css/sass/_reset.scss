@@ -1,0 +1,171 @@
+//-------------------------------------------------------------------------------
+// Tide.is Reset: v0.0.1 
+//-------------------------------------------------------------------------------
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  &:after, &.before {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+html, body, div, main, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary, main {
+  display: block;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  //-webkit-font-smoothing: antialiased
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style-type: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+
+input, textarea {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+
+button, input[type="button"] {
+  background: 0;
+}
+
+:required {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+u {
+  text-decoration: underline;
+}
+
+pre, code {
+  font-family: Monaco, Courier, monospace;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+blockquote, q {
+  quotes: "" "";
+}
+
+blockquote {
+  &:before, &:after {
+    content: "";
+  }
+}
+
+q {
+  &:before, &:after {
+    content: "";
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+input {
+  &[type="submit"], &[type="button"] {
+    cursor: pointer;
+  }
+}
+
+button, label[for] {
+  cursor: pointer;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+video {
+  max-width: 100%; 
+  height: auto;
+}
+
+iframe,embed,object {
+  max-width: 100%;
+}
+
+// Removes yellowing of forms 
+*:focus {
+  outline: none;
+} 
+
+// Removes webkit native styling 
+input[type="search"] {-webkit-appearance: textfield;}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {display: none;}
+input, textarea {-webkit-appearance: none;  border-radius: 0;}
+
+// Sexy fonts
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: "liga" on;
+  margin: 0;
+}

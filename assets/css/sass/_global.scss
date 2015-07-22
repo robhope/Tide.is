@@ -1,0 +1,148 @@
+
+html, body {
+	height: 100%;
+}
+body {
+	background-color: $background-color;
+	font-family: "Courier New", Courier, monospace;
+	color: $primary-color;
+	text-align: center;
+	font-size: 14pt;
+}
+a {
+	color: $link-color;
+	font-size: 11pt;
+	text-decoration: underline;
+}
+
+// Preloader
+#loading {
+	text-align: center;
+	height: 100%;
+	svg {
+		margin: $default-spacing 0;
+		padding-bottom: 2px;
+  		padding-right: 2px;
+		* {
+			stroke: $primary-color;
+		}
+	}
+}
+
+#content {
+	display: none;
+	height: 100%;
+}
+
+#header {
+	padding: $default-spacing 0;
+}
+
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+.cell {
+	display: inline-block;
+	width: 33.3%;
+	vertical-align: middle;
+	
+	&.navigator {
+		width: 2%;
+	}
+
+	&#time {
+		width: 96%;
+		letter-spacing: -0.5px;
+		color: $link-color;
+	}
+
+	&:nth-child(3n+1) {
+		text-align: left;
+		text-transform: capitalize;
+	}
+
+	&:nth-child(3n) {
+		text-align: right;
+	}
+}
+
+#tide {
+	.cell:nth-child(3n+2) {
+		font-weight: bold;
+	}
+
+	.row {
+		padding: 5px 0;
+	}
+	
+	.row:nth-child(2n+1) {
+		background-color: $row-background-color
+	}
+}
+
+
+#stationWrapper {
+	display: none;
+	margin-top: $default-spacing;
+	color: $link-color;
+	padding-top: 2px;
+
+	#station {
+		font-size: 11pt;
+	}
+
+	svg.tideLocationPin {
+		fill: $link-color;
+		height: 10pt;
+		width: 13px;
+		margin-bottom: -2px;
+		opacity: 0.5;
+	}
+}
+
+footer {
+	text-align: center;
+	height: $footer-size;
+	margin-top: -$footer-size;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}

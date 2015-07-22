@@ -9,7 +9,7 @@ $(function () {
       $("#loading").hide();
       $("#content").show();
 
-      $('#time').html(moment().format('dddd, DD MMMM YYYY'));
+      $('#time').html(moment().format('ddd, DD MMM YYYY'));
 
       if (result.tides.length) {
         result.tides.forEach(function (tide) {
