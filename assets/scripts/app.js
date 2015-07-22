@@ -43,16 +43,16 @@ $(function () {
       
     switch(error.code) {
       case error.PERMISSION_DENIED:
-        $('#tide').append($('<div>').addClass('wrapper').text('Location detection has been denied, please enable this in your device settings'));
+        $('#tide').append($('<div>').addClass('wrapper').text('Location detection has been denied, please enable location services in your device settings.'));
         break;
       case error.POSITION_UNAVAILABLE:
-        $('#tide').append($('<div>').addClass('wrapper').text('Sorry, location information is unavailable, please try again later'));
+        $('#tide').append($('<div>').addClass('wrapper').text('Sorry, location information is unavailable at this time, please try again later.'));
         break;
       case error.TIMEOUT:
-        $('#tide').append($('<div>').addClass('wrapper').text('Sorry, we timed out trying to get your location, please try again later'));
+        $('#tide').append($('<div>').addClass('wrapper').text('Sorry, we timed out trying to get your location, please try again later.'));
         break;
       case error.UNKNOWN_ERROR:
-        $('#tide').append($('<div>').addClass('wrapper').text('An unknown error occurred trying to get your location, please try again later'));
+        $('#tide').append($('<div>').addClass('wrapper').text('An unknown error occurred trying to get your location, please try again later.'));
         break;
     }
   }
