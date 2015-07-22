@@ -18,7 +18,9 @@ $(function () {
 
           wrapper.append($('<div>').addClass('cell').text(tide.type));
           wrapper.append($('<div>').addClass('cell').text(moment(tide.time, 'h:mm a').format('HH\\hmm')));
-          wrapper.append($('<div>').addClass('cell').text(tide.height.replace('+', '') + 'm'));
+          
+          var tideHeight = parseFloat(tide.height).toFixed(1);
+          wrapper.append($('<div>').addClass('cell').text(tideHeight + 'm'));
 
           row.append(wrapper);
 
