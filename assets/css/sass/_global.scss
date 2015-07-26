@@ -32,6 +32,8 @@ a {
 #content {
 	display: none;
 	height: 100%;
+	max-width: 768px;
+	margin: 0 auto;
 }
 
 #header {
@@ -145,4 +147,20 @@ footer {
   -ms-animation: rotating 2s linear infinite;
   -o-animation: rotating 2s linear infinite;
   animation: rotating 2s linear infinite;
+}
+
+.svg-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #999;
+}
+
+.svg-icon circle {
+  stroke: #999;
+  stroke-width: 1;
 }

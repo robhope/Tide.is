@@ -1,0 +1,41 @@
+.modal {
+  display: none;
+  max-width: 400px;
+  width: 90%;
+  background: #fff;
+  padding: 2em;
+  color: #222;
+  text-align: left;
+  font-size: 11pt;
+
+  #license {
+    font-size: 8pt;
+     a {
+      font-size: 8pt;
+      text-decoration: none;
+     }
+  }
+
+  #close {
+    border-bottom: none;
+    float: right;
+    margin-right: -25px;
+    margin-top: -25px;
+  }
+
+  #share li {
+    display: inline-block;
+  }
+
+  p, ul {
+    margin-bottom: 1em;
+
+  }
+
+  a {
+    color: #222;
+    &:hover {
+      color: #111;
+    }
+  }
+}
