@@ -1,4 +1,8 @@
 
+//-------------------------------------------------------------------------------
+// Globals
+//-------------------------------------------------------------------------------
+
 html, body {
 	height: 100%;
 }
@@ -12,10 +16,27 @@ body {
 a {
 	color: $link-color;
 	font-size: 11pt;
-	text-decoration: underline;
+}
+.svg-icon {
+  width: 1.5em;
+  height: 1.5em;
 }
 
-// Preloader intro
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #999;
+}
+
+.svg-icon circle {
+  stroke: #999;
+  stroke-width: 1;
+}
+
+//-------------------------------------------------------------------------------
+// Rotating Preloader
+//-------------------------------------------------------------------------------
+
 #loading {
 	text-align: center;
 	height: 100%;
@@ -28,6 +49,10 @@ a {
 		}
 	}
 }
+
+//-------------------------------------------------------------------------------
+// Tide info after success 
+//-------------------------------------------------------------------------------
 
 #content {
 	display: none;
@@ -103,11 +128,35 @@ a {
 	}
 }
 
+//-------------------------------------------------------------------------------
+// Footer
+//-------------------------------------------------------------------------------
+
 footer {
 	text-align: center;
 	height: $footer-size;
 	margin-top: -$footer-size;
+
+	div {
+		display: inline-block;
+		vertical-align: top;
+
+		&.tide-name {
+		}
+	}
 }
+
+svg.tide-icon {
+	width: 24px;
+	height: 24px;
+	margin-top: -2px;
+	fill: $tide-icon-color;
+	vertical-align: top;
+}
+
+//-------------------------------------------------------------------------------
+// Rotating Preloader
+//-------------------------------------------------------------------------------
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
@@ -149,18 +198,3 @@ footer {
   animation: rotating 2s linear infinite;
 }
 
-.svg-icon {
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.svg-icon path,
-.svg-icon polygon,
-.svg-icon rect {
-  fill: #999;
-}
-
-.svg-icon circle {
-  stroke: #999;
-  stroke-width: 1;
-}

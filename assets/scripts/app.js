@@ -62,7 +62,7 @@ $(function () {
       
     switch(error.code) {
       case error.PERMISSION_DENIED:
-        $('#tide').append($('<div>').addClass('wrapper').text('Location detection has been denied, please enable location services in your device settings.'));
+        $('#tide').append($('<div>').addClass('wrapper').text('Location detection has been denied, please enable Location Services in your device privacy settings.'));
         break;
       case error.POSITION_UNAVAILABLE:
         $('#tide').append($('<div>').addClass('wrapper').text('Sorry, location information is unavailable at this time, please try again later.'));

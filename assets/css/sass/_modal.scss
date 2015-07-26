@@ -34,8 +34,14 @@
 
   a {
     color: #222;
+    text-decoration: underline;
     &:hover {
       color: #111;
     }
+  }
+  .svg-icon:hover path,
+  .svg-icon:hover polygon,
+  .svg-icon:hover rect {
+    fill: #666;
   }
 }
