@@ -1,9 +1,10 @@
 $(function () {
 	function showTide(position) {
     $.ajax({
-      url: 'https://tide-api.herokuapp.com/' + 
-        position.coords.latitude.toFixed(2) + 'N/' + 
-        position.coords.longitude.toFixed(2) + 'E'
+      url: 'http://192.168.0.2:8001/tide/' + 
+        position.coords.latitude.toFixed(2) + '/' + 
+        position.coords.longitude.toFixed(2) + '/' +
+        moment().unix()
     }).done(function(result) {
 
       $("#loading").hide();
@@ -11,16 +12,14 @@ $(function () {
 
       $('#time').html(moment().format('ddd, DD MMM YYYY'));
 
-      if (result.tides.length) {
-        result.tides.forEach(function (tide) {
+      if (result.extremes.length) {
+        result.extremes.sort(function (a, b) { return a.time - b.time;}).forEach(function (tide) {
           var row = $('<div>').addClass('row');
           var wrapper = $('<div>').addClass('wrapper');
 
           wrapper.append($('<div>').addClass('cell').text(tide.type));
-          wrapper.append($('<div>').addClass('cell').text(moment(tide.time, 'h:mm a').format('HH\\hmm')));
-          
-          var tideHeight = parseFloat(tide.height).toFixed(1);
-          wrapper.append($('<div>').addClass('cell').text(tideHeight + 'm'));
+          wrapper.append($('<div>').addClass('cell').text(moment.unix(tide.time).format('HH\\hm')));
+          wrapper.append($('<div>').addClass('cell').text(tide.height + 'm'));
 
           row.append(wrapper);
 
@@ -32,9 +31,11 @@ $(function () {
       }
       
       
-      if (result.station) {
+      if (result.location) {
         $('#stationWrapper').show();
-        $('#station').html(result.station.location + ' - ' + result.station.distance + ' away');
+        var lat = parseFloat(result.location.coordinate[0]).toFixed(2);
+        var lon = parseFloat(result.location.coordinate[1]).toFixed(2);
+        $('#station').html(lat + ',' + lon + ' - ' + parseFloat(result.location.distance).toFixed(1) + 'km away');
       }
     });
   }
