@@ -18,9 +18,9 @@ $(function () {
 	function showTide(position) {
     $('#loadingInfo').text('Fetching your tide information');
     $.ajax({
-      url: 'http://192.168.0.2:8001/tide/' + 
-        position.coords.latitude.toFixed(2) + '/' + 
-        position.coords.longitude.toFixed(2) + '/' +
+      url: 'https://tide-api.com/tide/' +
+        position.coords.latitude + '/' +
+        position.coords.longitude + '/' +
         moment().unix()
     }).done(function(result) {
 
@@ -35,7 +35,7 @@ $(function () {
           var wrapper = $('<div>').addClass('wrapper');
 
           wrapper.append($('<div>').addClass('cell').text(tide.type));
-          wrapper.append($('<div>').addClass('cell').text(moment.unix(tide.time).format('HH\\hm')));
+          wrapper.append($('<div>').addClass('cell').text(moment.unix(tide.time).format('HH[h]mm')));
           wrapper.append($('<div>').addClass('cell').text(tide.height + 'm'));
 
           row.append(wrapper);
