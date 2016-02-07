@@ -42,10 +42,9 @@ a {
 	height: 100%;
 	svg {
 		margin: $default-spacing 0;
-		padding-bottom: 2px;
-  		padding-right: 2px;
 		* {
-			stroke: $primary-color;
+			stroke-width: 0;
+      fill: $primary-color;
 		}
 	}
 }

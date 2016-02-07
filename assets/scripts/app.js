@@ -44,16 +44,21 @@ $(function () {
         });
 
       } else {
-        $('#tide').append($('<div>').addClass('wrapper').text('Sorry, your location is not near a known tide station'));
+        $('#tide').append($('<div>').addClass('wrapper').text('Something went wrong, please try again later.'));
       }
       
       
       if (result.location) {
         $('#stationWrapper').show();
-        var lat = parseFloat(result.location.coordinate[0]).toFixed(2);
-        var lon = parseFloat(result.location.coordinate[1]).toFixed(2);
-        $('#station').html(lat + ',' + lon + ' - ' + parseFloat(result.location.distance).toFixed(1) + 'km away');
+        $('#station').html(parseFloat(result.location.distance).toFixed(1) + 'km away');
       }
+    }).fail(function() {
+      $("#loading").hide();
+      $("#content").show();
+
+      $('#time').html(moment().format('ddd, DD MMM YYYY'));
+
+      $('#tide').append($('<div>').addClass('wrapper').text('Something went wrong, please try again later.'));
     });
   }
 
