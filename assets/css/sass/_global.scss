@@ -40,13 +40,7 @@ a {
 #loading {
 	text-align: center;
 	height: 100%;
-	svg {
-		margin: $default-spacing 0;
-		* {
-			stroke-width: 0;
-      fill: $primary-color;
-		}
-	}
+  padding: $default-spacing 0;
 }
 
 //-------------------------------------------------------------------------------
@@ -154,46 +148,47 @@ svg.tide-icon {
 }
 
 //-------------------------------------------------------------------------------
-// Rotating Preloader
+// Radar Preloader
 //-------------------------------------------------------------------------------
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
-  from {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+@keyframes dot-anim {
+  45% {
+    opacity: 1;
   }
-  to {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
+  46% {
+    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 0 $background-color, 0 0 5px 10px $row-background-color;
   }
-}
-@keyframes rotating {
-  from {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+  50% {
+    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 101px $background-color, 0 0 0 173px $row-background-color;
   }
-  to {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
+  52% {
+    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 245px $background-color, 0 0 0 255px $row-background-color;
+  }
+  55% {
+    opacity: 1;
+    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 317px $background-color, 0 0 0 320px $row-background-color;
+  }
+  81% {
+    opacity: 0;
+    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 549px $background-color, 0 0 0 549px $row-background-color;
   }
 }
-.rotating {
-  -webkit-animation: rotating 2s linear infinite;
-  -moz-animation: rotating 2s linear infinite;
-  -ms-animation: rotating 2s linear infinite;
-  -o-animation: rotating 2s linear infinite;
-  animation: rotating 2s linear infinite;
+.radar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.2em;
+  height: 0.2em;
+  background-color: $row-background-color;
+  box-shadow: 0 0 .2em .13em $row-background-color, 0 0 0 0 $background-color, 0 0 0 0 $row-background-color;
+  opacity: 0;
+  border-radius: 50%;
+  z-index: -1;
+
+  -webkit-animation: dot-anim linear 1.834s infinite;
+  -moz-animation: dot-anim linear 1.834s infinite;
+  -ms-animation: dot-anim linear 1.834s infinite;
+  -o-animation: dot-anim linear 1.834s infinite;
+  animation: dot-anim linear 1.834s infinite;
 }
 
