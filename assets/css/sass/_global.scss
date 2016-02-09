@@ -50,6 +50,7 @@ a {
 #content {
 	display: none;
 	height: 100%;
+  min-height: 21em;
 	max-width: 768px;
 	margin: 0 auto;
 }
@@ -152,43 +153,45 @@ svg.tide-icon {
 //-------------------------------------------------------------------------------
 
 @keyframes dot-anim {
-  45% {
+  80% {
     opacity: 1;
   }
-  46% {
-    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 0 $background-color, 0 0 5px 10px $row-background-color;
-  }
-  50% {
-    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 101px $background-color, 0 0 0 173px $row-background-color;
-  }
-  52% {
-    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 245px $background-color, 0 0 0 255px $row-background-color;
-  }
-  55% {
-    opacity: 1;
-    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 317px $background-color, 0 0 0 320px $row-background-color;
-  }
-  81% {
+   100% {
+    width: 600px;
+    height: 600px;
+    margin: -300px;
     opacity: 0;
-    box-shadow: 0 0 .2em .13em $lighter-background-color, 0 0 0 549px $background-color, 0 0 0 549px $row-background-color;
   }
 }
-.radar {
+.radar, .dot {
   position: absolute;
   top: 50%;
   left: 50%;
+  margin: -0.1em;
   width: 0.2em;
   height: 0.2em;
-  background-color: $row-background-color;
-  box-shadow: 0 0 .2em .13em $row-background-color, 0 0 0 0 $background-color, 0 0 0 0 $row-background-color;
-  opacity: 0;
+  box-shadow: 0 0 .2em .13em $lighter-background-color;
+  opacity: 1;
   border-radius: 50%;
   z-index: -1;
+}
 
-  -webkit-animation: dot-anim linear 1.834s infinite;
-  -moz-animation: dot-anim linear 1.834s infinite;
-  -ms-animation: dot-anim linear 1.834s infinite;
-  -o-animation: dot-anim linear 1.834s infinite;
-  animation: dot-anim linear 1.834s infinite;
+.dot {
+  background-color: $lighter-background-color;
+}
+
+.radar {
+  -webkit-animation: dot-anim linear 3s infinite;
+  animation: dot-anim linear 3s infinite;
+
+  &:nth-child(2) {
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+  }
 }
 
