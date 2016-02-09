@@ -12,6 +12,7 @@ body {
 	color: $primary-color;
 	text-align: center;
 	font-size: 14pt;
+  overflow-x: hidden;
 }
 a {
 	color: $link-color;
