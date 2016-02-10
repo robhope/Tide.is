@@ -182,6 +182,8 @@ svg.tide-icon {
 }
 
 .radar {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
   -webkit-animation: dot-anim linear 3s infinite;
   animation: dot-anim linear 3s infinite;
 
