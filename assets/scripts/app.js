@@ -17,11 +17,10 @@ $.modal.defaults = {
 $(function () {
 	function showTide(position) {
     $('#loadingInfo').text('Fetching your tide information');
-    $.ajax({
-      url: 'https://tide-api.com/tide/' +
-        position.coords.latitude + '/' +
-        position.coords.longitude + '/' +
-        moment().unix()
+    $.get('https://tide-api.com/', {
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+      time: moment().unix()
     }).done(function(result) {
 
       $("#loading").hide();
@@ -30,7 +29,7 @@ $(function () {
       $('#time').html(moment().format('ddd, DD MMM YYYY'));
 
       if (result.extremes.length) {
-        result.extremes.sort(function (a, b) { return a.time - b.time;}).forEach(function (tide) {
+        result.extremes.forEach(function (tide) {
           var row = $('<div>').addClass('row');
           var wrapper = $('<div>').addClass('wrapper');
 
