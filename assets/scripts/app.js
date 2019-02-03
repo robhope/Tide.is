@@ -17,7 +17,7 @@ $.modal.defaults = {
 $(function () {
 	function showTide(position) {
     $('#loadingInfo').text('Fetching your tide information');
-    $.get('https://tide-api.com/', {
+    $.get('https://api.tide.is/', {
       lat: position.coords.latitude,
       lon: position.coords.longitude,
       time: moment().unix()
@@ -45,8 +45,7 @@ $(function () {
       } else {
         $('#tide').append($('<div>').addClass('wrapper').text('Something went wrong, please try again later.'));
       }
-      
-      
+
       if (result.location) {
         $('#stationWrapper').show();
         $('#station').html(parseFloat(result.location.distance).toFixed(1) + 'km away');
@@ -64,7 +63,7 @@ $(function () {
   function showError(error) {
     $("#loading").hide();
     $("#content").show();
-      
+
     switch(error.code) {
       case error.PERMISSION_DENIED:
         $('#tide').append($('<div>').addClass('wrapper').text('Location detection has been denied, please enable Location Services in your device privacy settings.'));
